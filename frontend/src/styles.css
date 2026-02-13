@@ -1,0 +1,249 @@
+:root {
+  --bg: #0e1b22;
+  --bg-soft: #16252e;
+  --panel: #f5f1eb;
+  --accent: #f2a365;
+  --accent-strong: #f76f4a;
+  --text: #1b1b1b;
+  --text-muted: #5c5c5c;
+  --shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+  --radius: 18px;
+  font-family: "Georgia", "Times New Roman", serif;
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #21313a 0%, #0e1b22 55%, #0b1419 100%);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  padding: 48px 20px 80px;
+  background-image: linear-gradient(145deg, rgba(242, 163, 101, 0.06), rgba(0, 0, 0, 0));
+  animation: fadeIn 0.8s ease both;
+}
+
+.hero {
+  max-width: 860px;
+  margin: 0 auto 32px;
+  text-align: center;
+  color: #f8f4ef;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.panel {
+  background: var(--panel);
+  padding: 26px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.panel-header h2 {
+  margin: 0 0 6px;
+}
+
+.panel-header p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.stack {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+input,
+textarea,
+select {
+  font-family: "Trebuchet MS", "Verdana", sans-serif;
+  border-radius: 12px;
+  border: 1px solid #d5cbbf;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-family: "Trebuchet MS", "Verdana", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #1b1b1b;
+}
+
+.ghost {
+  background: transparent;
+  color: #f8f4ef;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 0.9rem;
+}
+
+.auth-container {
+  max-width: 520px;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+}
+
+.danger {
+  background: #ff5b5b;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin-top: 20px;
+}
+
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  color: #f2eee9;
+}
+
+.dashboard .panel {
+  color: var(--text);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+  margin: 12px 0 8px;
+}
+
+.summary-card {
+  background: #efe3d6;
+  padding: 10px 12px;
+  border-radius: 12px;
+  display: grid;
+  gap: 4px;
+  text-transform: capitalize;
+}
+
+.task-card {
+  background: #fffaf3;
+  padding: 16px;
+  border-radius: 16px;
+  display: grid;
+  gap: 12px;
+  animation: rise 0.4s ease both;
+}
+
+.task-card h4 {
+  margin: 0 0 6px;
+}
+
+.task-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.toast {
+  max-width: 360px;
+  margin: 0 auto 24px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  text-align: center;
+  animation: rise 0.4s ease both;
+}
+
+.toast.success {
+  background: rgba(242, 163, 101, 0.9);
+  color: #1b1b1b;
+}
+
+.toast.error {
+  background: rgba(255, 91, 91, 0.92);
+  color: white;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .task-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
